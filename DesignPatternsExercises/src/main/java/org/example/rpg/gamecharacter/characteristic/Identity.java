@@ -9,11 +9,11 @@ public class Identity {
         this.playerName = playerName;
     }
 
-    public Race getRace() {
-        return race;
-    }
-
-    public String getPlayerName() {
-        return playerName;
+    @Override
+    public String toString() {
+        return "Identity {" +
+                "race = " + race +
+                ", playerName = '" + playerName + '\'' +
+                '}';
     }
 }

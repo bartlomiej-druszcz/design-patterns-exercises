@@ -1,7 +1,18 @@
 package org.example.rpg.gamecharacter;
 
-public class Player extends GameCharacter {
-    public Player() {
-        super();
+import org.example.rpg.gamecharacter.characteristic.*;
+
+public class Player extends GameCharacterWithEquipment {
+    public Player(Identity identity, Statistics statisticsOfPlayer, Equipment equipmentOfPlayer) {
+        super(identity, statisticsOfPlayer, equipmentOfPlayer);
+    }
+
+    @Override
+    public String toString() {
+        return "Player {" +
+                "\nidentity = " + super.getIdentity() +
+                ",\nstatisticsOfPlayer = " + super.getStatisticsOfPlayer() +
+                ",\nequipmentOfPlayer = " + super.getEquipmentOfPlayer() +
+                "}\n";
     }
 }

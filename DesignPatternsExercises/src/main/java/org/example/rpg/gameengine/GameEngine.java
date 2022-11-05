@@ -1,7 +1,7 @@
 package org.example.rpg.gameengine;
 
-import org.example.rpg.gamecharacter.GameCharacter;
-import org.example.rpg.gamecharacter.builder.*;
+import org.example.rpg.gamecharacter.*;
+import org.example.rpg.gamecharacter.characteristic.Race;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,12 +23,13 @@ public enum GameEngine {
         this.characterList = characterList;
     }
 
-    public void run() {
-        GameCharacter player = new HumanBuilder().create();
-        GameCharacter elf = new ElfBuilder().create();
-        GameCharacter dwarf = new DwarfBuilder().create();
-        GameCharacter monster = new MonsterBuilder().create();
-        GameCharacter merchant = new MerchantBuilder().create();
+    public void start() {
+        GameCharacterFactory characterFactory = new GameCharacterFactory();
+        GameCharacter player = characterFactory.createGameCharacter(Race.HUMAN);
+        GameCharacter elf = characterFactory.createGameCharacter(Race.ELF);
+        GameCharacter dwarf = characterFactory.createGameCharacter(Race.DWARF);
+        GameCharacter monster = characterFactory.createGameCharacter(Race.MONSTER);
+        GameCharacter merchant = characterFactory.createGameCharacter(Race.MERCHANT);
 
         characterList.add(player);
         characterList.add(elf);
@@ -36,11 +37,9 @@ public enum GameEngine {
         characterList.add(monster);
         characterList.add(merchant);
 
-        boolean flag = true;
-        while (flag) {
-            if (true)
-                flag = false;
-            System.out.println("Game over!");
-        }
+    }
+
+    public void play(){
+        System.out.println("Gram!");
     }
 }

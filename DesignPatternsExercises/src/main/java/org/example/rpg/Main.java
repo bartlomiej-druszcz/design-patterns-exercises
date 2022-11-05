@@ -1,12 +1,17 @@
 package org.example.rpg;
 
 import org.example.rpg.gameengine.GameEngine;
+import org.example.rpg.serialization.GameEngineDao;
 
 public class Main {
     public static void main(String[] args) {
-        GameEngine gameEngine = GameEngine.INSTANCE;
+        GameEngineDao game = new GameEngineDao();
+        GameEngine gameEngine = game.read();
 
-        gameEngine.run();
+//        gameEngine.start();
+        gameEngine.play();
 
+        System.out.println(gameEngine.getCharacterList());
+        game.save();
     }
 }

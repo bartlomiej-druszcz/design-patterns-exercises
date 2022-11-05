@@ -24,7 +24,28 @@ public class Equipment {
         return liftingCapacityLimit;
     }
 
+    public Integer weightEquipment() {
+        Integer sumWeight = 0;
+        for (Item item : itemList) {
+            sumWeight += item.getWeight();
+        }
+        return sumWeight;
+    }
+
     public Integer getAmountOfGold() {
         return amountOfGold;
+    }
+
+    public void setAmountOfGold(Integer amountOfGold) {
+        this.amountOfGold = amountOfGold;
+    }
+
+    @Override
+    public String toString() {
+        return "Equipment {" +
+                "itemList = " + itemList +
+                ", liftingCapacityLimit = " + liftingCapacityLimit +
+                ", amountOfGold = " + amountOfGold +
+                '}';
     }
 }
